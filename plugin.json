@@ -1,0 +1,26 @@
+{
+  "name": "form2",
+  "version": "0.1",
+  "description": {
+    "en": "Form2",
+    "ru": "Form2",
+    "uk": "Form2"
+  },
+  "url": "https://github.com/pytsite/plugin-form2",
+  "author": {
+    "name": "Oleksandr Shepetko",
+    "email": "a@shepetko.com",
+    "url": "https://shepetko.com"
+  },
+  "requires": {
+    "pytsite": ">=9.1",
+    "packages": {
+      "htmler": "^0.1"
+    },
+    "plugins": {
+      "assetman": "^5.0",
+      "http_api": "^3.3",
+      "widget2": "^0.5"
+    }
+  }
+}
