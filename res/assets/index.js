@@ -7,16 +7,11 @@ import {createWidget} from '@pytsite/widget2';
 class Form extends React.Component {
     static propTypes = {
         actionUrl: PropTypes.string.isRequired,
-        className: PropTypes.string,
         getWidgetsPath: PropTypes.string.isRequired,
         method: PropTypes.string,
         steps: PropTypes.number.isRequired,
         submitPath: PropTypes.string.isRequired,
         uid: PropTypes.string.isRequired,
-    };
-
-    static defaultProps = {
-        className: 'pytsite-form2',
     };
 
     constructor(props) {
@@ -96,7 +91,6 @@ class Form extends React.Component {
     render() {
         return (
             <form action={this.props.actionUrl}
-                  className={this.props.className}
                   id={this.props.uid}
                   onSubmit={this.onSubmit}
             >
@@ -109,10 +103,9 @@ class Form extends React.Component {
     }
 }
 
-document.querySelectorAll('.pytsite-form2').forEach(wrapper => {
+document.querySelectorAll('.pytsite-form2-container').forEach(wrapper => {
     const form = <Form
         actionUrl={wrapper.getAttribute('data-action-url')}
-        className={wrapper.getAttribute('class')}
         getWidgetsPath={wrapper.getAttribute('data-get-widgets-path')}
         steps={parseInt(wrapper.getAttribute('data-steps'))}
         submitPath={wrapper.getAttribute('data-submit-path')}
@@ -120,10 +113,4 @@ document.querySelectorAll('.pytsite-form2').forEach(wrapper => {
     />;
 
     ReactDOM.render(form, wrapper);
-
-    // Remove wrapper container
-    wrapper.children.forEach(childNode => {
-        wrapper.parentNode.insertBefore(childNode, wrapper);
-    });
-    wrapper.remove();
 });

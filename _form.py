@@ -74,7 +74,7 @@ class Form:
         self._cid = f'{self.__module__}.{self.__class__.__name__}'
         self._uid = uid or random_str(alphanum_only=True)
         self._action = kwargs.get('action', '#')
-        self._css = 'pytsite-form2'
+        self._css = ''
         self._get_widgets_path = kwargs.get('get_widgets_path', GET_WIDGETS_PATH)
         self._name = kwargs.get('name', self._uid)
         self._steps = 1
@@ -154,7 +154,7 @@ class Form:
         store(self)
 
         return str(htmler.Div(
-            css=self._css,
+            css=f'pytsite-form2-container {self._css}'.strip(),
             data_action_url=self._action,
             data_get_widgets_path=self._get_widgets_path,
             data_steps=self._steps,
